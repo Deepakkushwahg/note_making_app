@@ -43,118 +43,118 @@ class _AuthenticationScreenState extends State<AuthenticationScreen> {
                   image: AssetImage('lib/images/design.png')),
             ),
             Positioned.fill(
-                top: 215,
                 child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Welcome to Notes",
-                        style: TextStyle(color: Colors.black, fontSize: 20),
-                      ),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      Container(
-                        width: MediaQuery.of(context).size.width / 1.3,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            // ignore: prefer_const_literals_to_create_immutables
-                            boxShadow: [
-                              BoxShadow(
-                                  color: Colors.black12,
-                                  offset: Offset(5.0, 5.0),
-                                  blurRadius: 10.0,
-                                  spreadRadius: 2.0),
-                              BoxShadow(
-                                  color: Colors.white,
-                                  offset: Offset(0.0, 0.0),
-                                  blurRadius: 0.0,
-                                  spreadRadius: 0.0),
-                            ]),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 30),
-                          child: TextField(
-                            controller: numberController,
-                            keyboardType: TextInputType.phone,
-                            decoration: InputDecoration(
-                                prefixText: "+91",
-                                prefixStyle: TextStyle(
-                                    color: Colors.black, fontSize: 16),
-                                labelText: "Enter the mobile number",
-                                labelStyle: TextStyle(color: Colors.black),
-                                border: InputBorder.none),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 40,
-                      ),
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 3.2,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: TextField(
-                            style: TextStyle(fontSize: 20),
-                            controller: otpController,
-                            maxLength: 6,
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              hintText: "Enter OTP",
-                              hintStyle:
-                                  TextStyle(color: Colors.black, fontSize: 16),
-                            ),
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      TextButton(
-                          onPressed: () {
-                            VerifyPhone(setData);
-                          },
-                          child: Text(
-                            "Send OTP",
-                            style: TextStyle(color: Colors.black, fontSize: 18),
-                          )),
-                      SizedBox(
-                        height: 10,
-                      ),
-                      SizedBox(
-                        width: 64,
-                        height: 64,
-                        child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                shadowColor: Colors.black,
-                                elevation: 5,
-                                primary: Colors.orange,
-                                shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(1000))),
-                            onPressed: () {
-                              if (otpController.text.length == 6 &&
-                                  numberController.text.length == 10) {
-                                setState(() {
-                                  otp = otpController.text;
-                                  isLoading = true;
-                                });
-                                signInWithPhoneNumber();
-                              } else if (otpController.text.length != 6) {
-                                showSnackBar(
-                                    context, "Please enter correct otp");
-                              } else {
-                                showSnackBar(
-                                    context, "Please enter phone number");
-                              }
-                            },
-                            child: Icon(
-                              Icons.arrow_forward,
-                              color: Colors.white,
-                              size: 40,
-                            )),
-                      ),
-                    ],
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height / 3,
                   ),
-                )),
+                  Text(
+                    "Welcome to Notes",
+                    style: TextStyle(color: Colors.black, fontSize: 20),
+                  ),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 1.3,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        // ignore: prefer_const_literals_to_create_immutables
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black12,
+                              offset: Offset(5.0, 5.0),
+                              blurRadius: 10.0,
+                              spreadRadius: 2.0),
+                          BoxShadow(
+                              color: Colors.white,
+                              offset: Offset(0.0, 0.0),
+                              blurRadius: 0.0,
+                              spreadRadius: 0.0),
+                        ]),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 30),
+                      child: TextField(
+                        controller: numberController,
+                        keyboardType: TextInputType.phone,
+                        decoration: InputDecoration(
+                            prefixText: "+91 ",
+                            prefixStyle:
+                                TextStyle(color: Colors.black, fontSize: 16),
+                            labelText: "Enter the mobile number",
+                            labelStyle: TextStyle(color: Colors.black),
+                            border: InputBorder.none),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 40,
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width / 3.2,
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: TextField(
+                        style: TextStyle(fontSize: 20),
+                        controller: otpController,
+                        maxLength: 6,
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          hintText: "Enter OTP",
+                          hintStyle:
+                              TextStyle(color: Colors.black, fontSize: 16),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  TextButton(
+                      onPressed: () {
+                        VerifyPhone(setData);
+                      },
+                      child: Text(
+                        "Send OTP",
+                        style: TextStyle(color: Colors.black, fontSize: 18),
+                      )),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    width: 64,
+                    height: 64,
+                    child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                            shadowColor: Colors.black,
+                            elevation: 5,
+                            primary: Colors.orange,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(1000))),
+                        onPressed: () {
+                          if (otpController.text.length == 6 &&
+                              numberController.text.length == 10) {
+                            setState(() {
+                              otp = otpController.text;
+                              isLoading = true;
+                            });
+                            signInWithPhoneNumber();
+                          } else if (otpController.text.length != 6) {
+                            showSnackBar(context, "Please enter correct otp");
+                          } else {
+                            showSnackBar(context, "Please enter phone number");
+                          }
+                        },
+                        child: Icon(
+                          Icons.arrow_forward,
+                          color: Colors.white,
+                          size: 40,
+                        )),
+                  ),
+                ],
+              ),
+            )),
             Positioned(
                 child: isLoading
                     ? Center(child: CircularProgressIndicator())
